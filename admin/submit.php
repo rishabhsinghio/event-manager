@@ -32,5 +32,24 @@ foreach ($values as $value) {
     $conn->query($eventds);
 }
 
+ $filename = strtolower(str_replace(" ", "_", $title)) . ".html";
+
+    // HTML template
+    $html = "
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>$title</title>
+    </head>
+    <body>
+        <h1>$title</h1>
+        <p>$description</p>
+    </body>
+    </html>
+    ";
+
+    // Save file
+    file_put_contents($filename, $html);
+
 echo "Event Created Successfully!";
 ?>
